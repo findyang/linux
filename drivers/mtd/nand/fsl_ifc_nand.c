@@ -1107,7 +1107,7 @@ static struct platform_driver fsl_ifc_nand_driver = {
 	.remove      = fsl_ifc_nand_remove,
 };
 
-module_platform_driver(fsl_ifc_nand_driver);
+// module_platform_driver(fsl_ifc_nand_driver);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Freescale");
