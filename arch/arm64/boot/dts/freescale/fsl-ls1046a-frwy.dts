@@ -119,6 +119,16 @@
 	bus-num = <0>;
 	status = "okay";
 
+	// qflash0: flash@0 {
+	// 	compatible = "jedec,spi-nor";
+	// 	#address-cells = <1>;
+	// 	#size-cells = <1>;
+	// 	spi-max-frequency = <50000000>;
+	// 	reg = <0>;
+	// 	spi-rx-bus-width = <4>;
+	// 	spi-tx-bus-width = <4>;
+	// };
+
 	qflash0: flash@0 {
 		compatible = "jedec,spi-nor";
 		#address-cells = <1>;
@@ -128,37 +138,44 @@
 		spi-rx-bus-width = <4>;
 		spi-tx-bus-width = <4>;
 	};
+
 };
 
 #include "fsl-ls1046-post.dtsi"
 
 &fman0 {
-	ethernet@10000 {
-		phy-handle = <&rgmii_phy1>;
-		phy-connection-type = "rgmii";
-	};
+	status = "okay";
+	phy-reset-gpios = <&gpio0 25 1>;
+	phy-reset-duration = <100>;
+    phy-reset-post-delay = <100>;
 
-	ethernet@20000 {
-		phy-handle = <&rgmii_phy2>;
-		phy-connection-type = "rgmii";
-	};
-
-	ethernet@30000 {
+	ethernet@f0000 {
 		phy-handle = <&sgmii_phy1>;
 		phy-connection-type = "sgmii";
 	};
 
-	ethernet@40000 {
+	ethernet@e4000 {
+		phy-handle = <&rgmii_phy1>;
+		phy-connection-type = "rgmii";
+	};
+
+	ethernet@e6000 {
+		phy-handle = <&rgmii_phy2>;
+		phy-connection-type = "rgmii";
+	};
+
+	ethernet@e8000 {
 		phy-handle = <&sgmii_phy2>;
 		phy-connection-type = "sgmii";
 	};
 
-	ethernet@50000 {
+	ethernet@ea000 {
 		phy-handle = <&sgmii_phy3>;
 		phy-connection-type = "sgmii";
 	};
 
-	mdio@fd000 {
+
+	mdio@fc000 {
 		rgmii_phy1: ethernet-phy@1 {
 			reg = <0x1>;
 		};
