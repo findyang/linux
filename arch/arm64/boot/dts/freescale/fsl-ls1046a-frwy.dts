@@ -119,16 +119,6 @@
 	bus-num = <0>;
 	status = "okay";
 
-	// qflash0: flash@0 {
-	// 	compatible = "jedec,spi-nor";
-	// 	#address-cells = <1>;
-	// 	#size-cells = <1>;
-	// 	spi-max-frequency = <50000000>;
-	// 	reg = <0>;
-	// 	spi-rx-bus-width = <4>;
-	// 	spi-tx-bus-width = <4>;
-	// };
-
 	qflash0: flash@0 {
 		compatible = "jedec,spi-nor";
 		#address-cells = <1>;
@@ -145,14 +135,9 @@
 
 &fman0 {
 	status = "okay";
-	phy-reset-gpios = <&gpio0 25 1>;
+	phy-reset-gpios = <&gpio0 31 1>;
 	phy-reset-duration = <100>;
     phy-reset-post-delay = <100>;
-
-	ethernet@f0000 {
-		phy-handle = <&sgmii_phy1>;
-		phy-connection-type = "sgmii";
-	};
 
 	ethernet@e4000 {
 		phy-handle = <&rgmii_phy1>;
@@ -174,8 +159,12 @@
 		phy-connection-type = "sgmii";
 	};
 
+	ethernet@f0000 {
+		phy-handle = <&sgmii_phy1>;
+		phy-connection-type = "sgmii";
+	};
 
-	mdio@fc000 {
+	mdio@fc000 {		
 		rgmii_phy1: ethernet-phy@1 {
 			reg = <0x1>;
 		};

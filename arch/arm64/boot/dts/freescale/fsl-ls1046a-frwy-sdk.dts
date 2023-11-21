@@ -81,12 +81,6 @@
 		dma-coherent;
 		status = "okay";
 	};
-	ethernet@9 {
-		compatible = "fsl,dpa-ethernet";
-		fsl,fman-mac = <&enet7>;
-		dma-coherent;
-		status = "okay";
-	};
 };
 
 &fman0 {
