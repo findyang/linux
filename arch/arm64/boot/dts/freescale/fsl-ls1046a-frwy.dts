@@ -82,15 +82,17 @@
 				shunt-resistor = <1000>;
 			};
 
-			rtc@51 {
-				compatible = "nxp,pcf2129";
-				reg = <0x51>;
-			};
+			// rtc@51 {
+			// 	compatible = "nxp,pcf2129";
+			// 	reg = <0x51>;
+			// };
 
 			temperature-sensor@4c {
-				compatible = "nxp,sa56004";
+				// compatible = "nxp,sa56004";
+				// reg = <0x4c>;
+				// vcc-supply = <&sb_3v3>;
+				compatible = "adi,adt7461";
 				reg = <0x4c>;
-				vcc-supply = <&sb_3v3>;
 			};
 
 		};
