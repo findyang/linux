@@ -22,6 +22,7 @@
 	};
 
 	chosen {
+		
 		stdout-path = "serial0:115200n8";
 	};
 
@@ -138,7 +139,7 @@
 &fman0 {
 	status = "okay";
 	// phy-reset-gpios = <&gpio0 31 1>;
-	// phy-reset-duration = <100>;
+	// phy-reset-duration = <10>;
     // phy-reset-post-delay = <100>;
 
 	ethernet@e4000 {
@@ -169,32 +170,23 @@
 	mdio@fc000 {		
 		rgmii_phy1: ethernet-phy@1 {
 			reg = <0x1>;
-			reset-gpios = <&gpio0 31 1>;
-			reset-delay-us = <200000>;
 		};
 
 		rgmii_phy2: ethernet-phy@2 {
 			reg = <0x2>;
-			reset-gpios = <&gpio0 31 1>;
-			reset-delay-us = <200000>;
+			
 		};
 
 		sgmii_phy1: ethernet-phy@3 {
 			reg = <0x3>;
-			reset-gpios = <&gpio0 31 1>;
-			reset-delay-us = <200000>;
 		};
 
 		sgmii_phy2: ethernet-phy@4 {
 			reg = <0x4>;
-			reset-gpios = <&gpio0 31 1>;
-			reset-delay-us = <200000>;
 		};
 
 		sgmii_phy3: ethernet-phy@5 {
 			reg = <0x5>;
-			reset-gpios = <&gpio0 31 1>;
-			reset-delay-us = <200000>;
 		};
 	};
 };
